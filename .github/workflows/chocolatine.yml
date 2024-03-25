@@ -57,6 +57,8 @@ jobs:
             image: epitechcontent/epitest-docker:latest
         steps:
              - uses: actions/checkout@v4
+               with:
+                fetch-depth: 0
              - id: run_tests
                run: make tests_run
     
