@@ -65,6 +65,7 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         runs-on: ubuntu-latest
         timeout-minutes: 2
+        name: push_to_mirror
         steps:
             - uses: actions/checkout@v4
               with:
