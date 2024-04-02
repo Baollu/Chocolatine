@@ -30,8 +30,7 @@ jobs:
 
             - name: report_error_coding        
               run: |
-                $error= cat coding-style-reports.log | wc -1
-                if [ $error -gt 0]; then
+                if [ -s "coding-style-reports.log" ];then
                   exit 1
                 fi
 
