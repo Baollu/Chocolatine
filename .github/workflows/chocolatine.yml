@@ -30,9 +30,8 @@ jobs:
 
             - name: report_error_coding        
               run: |
-                draw=cat honneur.txt
                 if [ -s "coding-style-reports.log" ];then
-                  echo "::error title=Respect my coding-style::$draw"
+                  cat honneur.txt
                   exit 1
                 fi
 
