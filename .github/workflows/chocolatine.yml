@@ -32,9 +32,12 @@ jobs:
               run: |
                 honneur="honneur.txt"
                 if [ -s "coding-style-reports.log" ];then
-                  echo "::$honneur::"  
+                while IFS"\n" read -r draw
+                  do
+                    echo "::error draw=$draw::"   
                   exit 1
                 fi
+                done < "$draw"
 
     check_program_compilation:
         needs: check_coding_style
