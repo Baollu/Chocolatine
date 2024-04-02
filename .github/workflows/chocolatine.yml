@@ -89,3 +89,9 @@ jobs:
                     ${{ env.MIRROR_URL }}
                 ssh_private_key:
                     ${{ secrets.CHOCOLATINE_SSH_KEY_PRIVATE }}
+
+    timme_push:
+      needs: push_to_mirror
+      runs-on: ubuntu:latest
+      steps:
+        - run: date
