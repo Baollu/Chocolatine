@@ -28,6 +28,7 @@ jobs:
                     do 
                         echo "::error title=$error_type coding style error,file=$name,line=$line::$error_code"
                     done < "$input"
+            - run: |
                 error=$ (cat coding-style-reports.log | wc -1)
                 if [ $error -gt 0]; then
                   exit 1
