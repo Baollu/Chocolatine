@@ -10,8 +10,8 @@
 int main(void)
 {
     int i = 0;
-
-    printf("Hello");
+          
+          printf("Hello");
     printf("Hello");
     return 0;
 }
