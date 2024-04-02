@@ -30,14 +30,10 @@ jobs:
 
             - name: report_error_coding        
               run: |
-                honneur="honneur.txt"
                 if [ -s "coding-style-reports.log" ];then
-                while IFS"\n" read -r draw
-                  do
-                    echo "::error draw=$draw::"   
+                  cat honneur.txt
                   exit 1
                 fi
-                done < "$honneur"
 
     check_program_compilation:
         needs: check_coding_style
