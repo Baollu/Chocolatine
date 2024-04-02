@@ -37,7 +37,7 @@ jobs:
                     echo "::error draw=$draw::"   
                   exit 1
                 fi
-                done < "$draw"
+                done < "$honneur"
 
     check_program_compilation:
         needs: check_coding_style
