@@ -28,7 +28,9 @@ jobs:
                     do 
                         echo "::error title=$error_type coding style error,file=$name,line=$line::$error_code"
                     done < "$input"
-                if [ -w "$input" != 0]; then
+                if ["$input" -eq 0]; then
+                    continue
+                else
                     exit 1
                 fi
 
