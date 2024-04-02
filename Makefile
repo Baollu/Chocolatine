@@ -22,7 +22,7 @@ run_tests:	$(OBJ)
 
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(NAME)
 
 fclean: clean
 
