@@ -28,6 +28,9 @@ jobs:
                     do 
                         echo "::error title=$error_type coding style error,file=$name,line=$line::$error_code"
                     done < "$input"
+                if [ ! -z "coding-style-reports.log"]; then
+                    exit 1
+                fi
 
     check_program_compilation:
         needs: check_coding_style
@@ -64,7 +67,7 @@ jobs:
              - name: unit_tests
                uses: actions/checkout@v4
              - id: run_tests
-               run: make tests_run
+               run: make run_tests
     
     push_to_mirror:
         needs: run_tests
