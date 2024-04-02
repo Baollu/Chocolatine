@@ -20,16 +20,17 @@ jobs:
         steps:
             - name: check_coding_style
               uses: actions/checkout@v4
-            - id: check_coding_style
-              run: |
+            - run: |
                 check.sh $(pwd) $(pwd)
                 input="coding-style-reports.log"
                 while IFS=":" read -r name line error_type error_code
                     do 
                         echo "::error title=$error_type coding style error,file=$name,line=$line::$error_code"
                     done < "$input"
-            - run: |
-                error=$ (cat coding-style-reports.log | wc -1)
+
+            - name: report_error_coding        
+              run: |
+                error=$(cat coding-style-reports.log | wc -1)
                 if [ $error -gt 0]; then
                   exit 1
                 fi
