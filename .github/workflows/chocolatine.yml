@@ -31,6 +31,7 @@ jobs:
             - name: report_error_coding        
               run: |
                 if [ -s "coding-style-reports.log" ];then
+                  cat "honneur.txt"
                   exit 1
                 fi
 
