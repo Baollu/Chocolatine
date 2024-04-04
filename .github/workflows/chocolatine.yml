@@ -30,7 +30,7 @@ jobs:
                     done < "$input"
             
             - run: |
-                if [ coding-style-reports.log -gt == 0 ]; then
+                if [ -s coding-style-reports.log ]; then
                     cat honneur.txt
                     exit 1
                 fi
