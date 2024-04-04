@@ -29,8 +29,8 @@ jobs:
                         echo "::error title=$error_type coding style error,file=$name,line=$line::$error_code"
                     done < "$input"
 
-                if [ -s coding-style-reports.log ]; then
-                  exit 1
+                if [ -s coding-styleh-reports.log ]; then
+                    exit 1
                 fi
 
     check_program_compilation:
@@ -71,7 +71,7 @@ jobs:
                run: |
                   make run_tests
                   ./${{env.TESTRUN}}
-                  if [ $? == 1 ]; then
+                  if [ $? != 0 ]; then
                       exit 1
                   fi
 
