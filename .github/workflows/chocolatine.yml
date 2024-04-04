@@ -69,7 +69,7 @@ jobs:
              - name: unit_tests
                uses: actions/checkout@v4
              - run: |
-                  make tests_run
+                  make run_tests
                   ./${{env.TESTRUN}}
                   if [ $? != 0 ]; then
                       exit 1
