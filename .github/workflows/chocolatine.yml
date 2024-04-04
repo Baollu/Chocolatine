@@ -27,8 +27,7 @@ jobs:
                 while IFS=":" read -r name line error_type error_code
                     do 
                         echo "::error title=$error_type coding style error,file=$name,line=$line::$error_code"
-                    done < "$input"
-            
+                    done < "$input"    
             - run: |
                 if [ -s coding-style-reports.log ]; then
                     cat honneur.txt
@@ -69,9 +68,8 @@ jobs:
         steps:
              - name: unit_tests
                uses: actions/checkout@v4
-             - id: run_tests
-               run: |
-                  make run_tests
+             - run: |
+                  make tests_run
                   ./${{env.TESTRUN}}
                   if [ $? != 0 ]; then
                       exit 1
