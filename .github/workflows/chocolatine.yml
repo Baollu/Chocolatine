@@ -68,7 +68,6 @@ jobs:
                   make run_tests
                   ./${{env.TESTRUN}}
                   if [ $? == 1 ]; then
-                      echo "::Unit_test not passed::"
                       exit 1
                   fi
 
