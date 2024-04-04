@@ -58,10 +58,10 @@ jobs:
                     fi
                   done
 
-    tests_run:
+    run_tests:
         needs: check_program_compilation
         runs-on: ubuntu-latest
-        name: tests_run
+        name: run_tests
         timeout-minutes: 2
         container:
             image: epitechcontent/epitest-docker:latest
@@ -69,14 +69,14 @@ jobs:
              - name: unit_tests
                uses: actions/checkout@v4
              - run: |
-                  make tests_run
+                  make run_tests
                   ./${{env.TESTRUN}}
                   if [ $? != 0 ]; then
                       exit 1
                   fi
 
     push_to_mirror:
-      needs: tests_run
+      needs: run_tests
       if: ${{github.workspace != vars.MIRROR_URL && github.event_name == 'push'}}
       runs-on: ubuntu-latest
       name: push_to_mirror
