@@ -28,8 +28,9 @@ jobs:
                     do 
                         echo "::error title=$error_type coding style error,file=$name,line=$line::$error_code"
                     done < "$input"
-
-                if [ $input -gt == 0 ]; then
+            
+            - run: |
+                if [ coding-style-reports.log -gt == 0 ]; then
                     cat honneur.txt
                     exit 1
                 fi
