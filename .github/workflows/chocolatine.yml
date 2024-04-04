@@ -66,7 +66,7 @@ jobs:
                run: |
                   make run_tests
                   if [ $? == 1 ]; then
-                      exit
+                      exit 1
                   fi
 
     
