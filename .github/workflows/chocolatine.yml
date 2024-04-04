@@ -65,14 +65,14 @@ jobs:
              - id: run_tests
                run: |
                   make run_tests
-                  if [ ! echo $1 ]
-                    exit
+                  if [ $? == 1 ]; then
+                      exit
                   fi
 
     
     push_to_mirror:
       needs: run_tests
-      if: github.repository != ${{vars.MIRROR_URL}} && github.event_name == 'push'
+      if: ${{github.workflow != vars.MIRROR_URL && github.event_name == 'push'}}
       runs-on: ubuntu-latest
       name: push_to_mirror
       steps:
