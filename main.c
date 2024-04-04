@@ -10,7 +10,8 @@
 int main(void)
 {
     int a = 10;
+    char *str = NULL;
 
     printf("Hello World ");
-    printf("%d\n", a);
+    printf("%s\n", str);
 }
