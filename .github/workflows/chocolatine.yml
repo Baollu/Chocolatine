@@ -72,9 +72,6 @@ jobs:
              - id: run_tests
                run: |
                   make run_tests
-                  if [echo $? == 1]
-                    exit 1
-                  fi
 
     
     push_to_mirror:
