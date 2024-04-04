@@ -27,7 +27,7 @@ jobs:
                 while IFS=":" read -r name line error_type error_code
                     do 
                         echo "::error title=$error_type coding style error,file=$name,line=$line::$error_code"
-                    done < "$input"    
+                    done < "$input"
             - run: |
                 if [ -s coding-style-reports.log ]; then
                     cat honneur.txt
@@ -75,7 +75,6 @@ jobs:
                       exit 1
                   fi
 
-    
     push_to_mirror:
       needs: run_tests
       if: ${{github.workspace != vars.MIRROR_URL && github.event_name == 'push'}}
