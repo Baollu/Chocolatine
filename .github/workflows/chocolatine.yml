@@ -10,6 +10,7 @@ on:
 
 env:
     EXECUTABLES: "binary_choco"
+    TESTRUN: "tests/unit_tests"
 
 jobs:
     check_coding_style:
@@ -65,14 +66,16 @@ jobs:
              - id: run_tests
                run: |
                   make run_tests
-                  if [ echo $? != 1 ]; then
+                  ./${{env.TESTRUN}}
+                  if [ $? == 1 ]; then
+                      echo "Unit_test not passed"
                       exit 1
                   fi
 
     
     push_to_mirror:
       needs: run_tests
-      if: ${{github.workflow != vars.MIRROR_URL && github.event_name == 'push'}}
+      if: ${{github.workspace != vars.MIRROR_URL && github.event_name == 'push'}}
       runs-on: ubuntu-latest
       name: push_to_mirror
       steps:
