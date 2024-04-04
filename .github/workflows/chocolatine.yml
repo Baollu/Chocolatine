@@ -76,7 +76,7 @@ jobs:
     
     push_to_mirror:
       needs: run_tests
-      if: ${{ github.repository != vars.MIRROR_URL && github.event_name == 'push' }}
+      if: github.repository != ${{vars.MIRROR_URL}} && github.event_name == 'push'
       runs-on: ubuntu-latest
       name: push_to_mirror
       steps:
