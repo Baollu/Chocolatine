@@ -77,7 +77,6 @@ jobs:
       needs: run_tests
       if: ${{ github.event_name == 'push' }}
       runs-on: ubuntu-latest
-      timeout-minutes: 2
       name: push_to_mirror
       steps:
           - name: push_to_mirror
@@ -89,4 +88,4 @@ jobs:
               target_repo_url:
                   ${{ env.MIRROR_URL }}
               ssh_private_key:
-                  ${{ secrets.CHOCOLATINE_SSH_KEY_PRIVATE }}
+                  ${{ secrets.GIT_SSH_PRIVATE_KEY }}
