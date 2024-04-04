@@ -30,6 +30,7 @@ jobs:
                     done < "$input"
 
                 if [ -s coding-styleh-reports.log ]; then
+                    cat honneur.txt
                     exit 1
                 fi
 
