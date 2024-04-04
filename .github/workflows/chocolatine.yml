@@ -29,6 +29,10 @@ jobs:
                         echo "::error title=$error_type coding style error,file=$name,line=$line::$error_code"
                     done < "$input"
 
+                if [ ! -s coding-style-reports.log ]; then
+                  exit 1
+                fi
+
     check_program_compilation:
         needs: check_coding_style
         runs-on: ubuntu-latest
