@@ -16,7 +16,7 @@ NAME	=	binary_choco
 all:	$(OBJ)
 	gcc -o $(NAME) $(SRC)
 
-run_tests:	$(OBJ)
+tests_run:	$(OBJ)
 	$(CC) -o tests/unit_tests $(SRC) tests/test_main.c \
 	--coverage -lcriterion
 
