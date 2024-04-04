@@ -85,7 +85,7 @@ jobs:
           - name: push_to_mirror
             uses: actions/checkout@v4
             with:
-              fetch-depth: 0
+              fetch-depth: 1
           - uses: pixta-dev/repository-mirroring-action@v1
             with:
               target_repo_url:
