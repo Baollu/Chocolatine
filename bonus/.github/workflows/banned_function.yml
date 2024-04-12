@@ -1,0 +1,17 @@
+name: banned_function
+
+on:
+    push:
+        branches-ignore:
+        - "ga-ignore-*"
+
+jobs:
+  banned_function:
+    runs-on: ubuntu-latest
+    name: banned_function
+    timeout-minutes: 2
+    steps:
+        - name: check_with_grep
+          uses: actions/checkout@v4
+        - run: |
+            cat * | grep my_printf --invert-match | grep "printf"
